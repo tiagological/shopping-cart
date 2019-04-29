@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchProducts, addToCart, increaseTotal } from '../actions';
+import PropTypes from 'prop-types';
+import styles from '../styles/ProductList.module.css';
 
 class ProductList extends React.Component {
   componentDidMount = () => {
@@ -10,7 +12,7 @@ class ProductList extends React.Component {
   render() {
     const listOfProducts = this.props.products.map(product => {
       return (
-        <div key={product.id}>
+        <div key={product.id} className={`column ${styles.centeredText}`}>
           <p>{product.name}</p>
           <p>{`Price: £${product.price}`}</p>
           <button
@@ -30,7 +32,7 @@ class ProductList extends React.Component {
       );
     });
 
-    return <div>{listOfProducts}</div>;
+    return <div className='columns'>{listOfProducts}</div>;
   }
 }
 
@@ -45,3 +47,11 @@ export default connect(
   mapStateToProps,
   { fetchProducts, addToCart, increaseTotal }
 )(ProductList);
+
+ProductList.propTypes = {
+  products: PropTypes.array.isRequired,
+  cart: PropTypes.array.isRequired,
+  fetchProducts: PropTypes.func.isRequired,
+  addToCart: PropTypes.func.isRequired,
+  increaseTotal: PropTypes
+};
