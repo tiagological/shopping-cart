@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import styles from '../styles/Navbar.module.css';
+import logo from '../assets/brand-logo.png';
 
-const Navbar = () => {
+const Navbar = props => {
   const [expandedState, setExpandedState] = useState('not-active');
 
   const classToggler = () => {
@@ -10,10 +13,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav className='navbar' role='navigation' aria-label='main navigation'>
+    <nav
+      className={`navbar ${styles.navbar}`}
+      role='navigation'
+      aria-label='main navigation'>
       <div className='navbar-brand'>
         <a className='navbar-item' href='#'>
-          <p>Shopping Cart</p>
+          <p className={styles.logoFont}>Tutti Frutti</p>
         </a>
 
         <a
@@ -23,23 +29,42 @@ const Navbar = () => {
           aria-expanded='false'
           data-target='navbarMenu'
           onClick={classToggler}>
-          <span aria-hidden='true' />
-          <span aria-hidden='true' />
-          <span aria-hidden='true' />
+          <span aria-hidden='true' className={styles.burgerSpan} />
+          <span aria-hidden='true' className={styles.burgerSpan} />
+          <span aria-hidden='true' className={styles.burgerSpan} />
         </a>
       </div>
 
       <div id='navbarMenu' className={`navbar-menu ${expandedState}`}>
         <div className='navbar-end'>
-          <a className='navbar-item'>Home</a>
+          <a className='navbar-item'>
+            <span className='icon is-large'>
+              <i className='fas fa-2x fa-home' />
+            </span>
+          </a>
 
-          <a className='navbar-item'>About</a>
+          <a className='navbar-item'>
+            <span className='icon is-large'>
+              <i className='fas fa-2x fa-info-circle' />
+            </span>
+          </a>
 
-          <a className='navbar-item'>Checkout</a>
+          <a className='navbar-item'>
+            <span className='icon is-large'>
+              <span className={styles.productQuantity}>
+                {props.cart.length < 1 ? null : props.cart.length}
+              </span>
+              <i className='fas fa-2x fa-shopping-cart' />
+            </span>
+          </a>
         </div>
       </div>
     </nav>
   );
 };
 
-export default Navbar;
+const mapStateToProps = state => {
+  return { cart: state.cart };
+};
+
+export default connect(mapStateToProps)(Navbar);

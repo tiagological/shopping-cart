@@ -1,0 +1,21 @@
+.navbar {
+  margin: 0 30px 0 30px;
+}
+
+.logoFont {
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+  color: rgb(127, 235, 193);
+}
+
+.burgerSpan {
+  height: 2px !important;
+  width: 20px !important;
+}
+
+.productQuantity {
+  color: #ffffff;
+  position: relative;
+  left: 1.6rem;
+  top: -0.3rem;
+}

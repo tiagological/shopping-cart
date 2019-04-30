@@ -8,9 +8,11 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <h1>React Redux Shopping Cart</h1>
-      <Cart />
-      <ProductList />
+      <section className='container'>
+        <h1>React Redux Shopping Cart</h1>
+        <Cart />
+        <ProductList />
+      </section>
     </div>
   );
 };

@@ -16,6 +16,7 @@ class ProductList extends React.Component {
           <p>{product.name}</p>
           <p>{`Price: £${product.price}`}</p>
           <button
+            className='button is-outlined'
             onClick={() => {
               this.props.addToCart(product.id, product.name, product.price);
               this.props.increaseTotal(product.price);
@@ -53,5 +54,5 @@ ProductList.propTypes = {
   cart: PropTypes.array.isRequired,
   fetchProducts: PropTypes.func.isRequired,
   addToCart: PropTypes.func.isRequired,
-  increaseTotal: PropTypes
+  increaseTotal: PropTypes.func.isRequired
 };
