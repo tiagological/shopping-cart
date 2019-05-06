@@ -18,6 +18,12 @@ export const addToCart = (productId, productName, productPrice) => {
   };
 };
 
+export const toggleCart = () => {
+  return {
+    type: 'TOGGLE_CART'
+  };
+};
+
 export const increaseTotal = productPrice => {
   return {
     type: 'INCREASE_TOTAL',

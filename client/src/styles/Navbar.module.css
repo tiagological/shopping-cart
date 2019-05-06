@@ -1,5 +1,5 @@
 .navbar {
-  margin: 0 30px 0 30px;
+  margin: 0 5px;
 }
 
 .logoFont {
@@ -11,6 +11,10 @@
 .burgerSpan {
   height: 2px !important;
   width: 20px !important;
+}
+
+.navbarMenu {
+  transition: display 4s;
 }
 
 .productQuantity {

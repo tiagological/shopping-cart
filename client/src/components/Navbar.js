@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { toggleCart } from '../actions';
 import styles from '../styles/Navbar.module.css';
-import logo from '../assets/brand-logo.png';
 
 const Navbar = props => {
   const [expandedState, setExpandedState] = useState('not-active');
@@ -35,7 +35,9 @@ const Navbar = props => {
         </a>
       </div>
 
-      <div id='navbarMenu' className={`navbar-menu ${expandedState}`}>
+      <div
+        id='navbarMenu'
+        className={`navbar-menu ${expandedState} ${styles.navbarMenu}`}>
         <div className='navbar-end'>
           <a className='navbar-item'>
             <span className='icon is-large'>
@@ -49,7 +51,7 @@ const Navbar = props => {
             </span>
           </a>
 
-          <a className='navbar-item'>
+          <a className='navbar-item' onClick={props.toggleCart}>
             <span className='icon is-large'>
               <span className={styles.productQuantity}>
                 {props.cart.length < 1 ? null : props.cart.length}
@@ -67,4 +69,7 @@ const mapStateToProps = state => {
   return { cart: state.cart };
 };
 
-export default connect(mapStateToProps)(Navbar);
+export default connect(
+  mapStateToProps,
+  { toggleCart }
+)(Navbar);

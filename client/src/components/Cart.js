@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { removeItem, decreaseTotal } from '../actions';
+import styles from '../styles/Cart.module.css';
 import PropTypes from 'prop-types';
 
 const Cart = props => {
@@ -20,6 +21,10 @@ const Cart = props => {
     );
   });
 
+  const cartVisibility = props.isCartVisible
+    ? { visibility: 'visible', opacity: 1 }
+    : { visibility: 'hidden', opacity: 0 };
+
   const cartDisplay =
     props.cart.length === 0 ? (
       <div>Your cart is empty!</div>
@@ -27,12 +32,11 @@ const Cart = props => {
       <div>
         {cartItems}
         <p>Total: £{props.total}</p>
-        <hr />
       </div>
     );
 
   return (
-    <div>
+    <div style={cartVisibility} className={styles.cartContainer}>
       <h3>Cart</h3>
       {cartDisplay}
     </div>
@@ -42,7 +46,8 @@ const Cart = props => {
 const mapStateToProps = state => {
   return {
     cart: state.cart,
-    total: state.total
+    total: state.total,
+    isCartVisible: state.isCartVisible
   };
 };
 
@@ -55,5 +60,6 @@ Cart.propTypes = {
   cart: PropTypes.array.isRequired,
   total: PropTypes.number.isRequired,
   removeItem: PropTypes.func.isRequired,
-  decreaseTotal: PropTypes.func.isRequired
+  decreaseTotal: PropTypes.func.isRequired,
+  isCartVisible: PropTypes.bool.isRequired
 };
