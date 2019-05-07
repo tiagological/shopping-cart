@@ -14,7 +14,7 @@ const Navbar = props => {
 
   return (
     <nav
-      className={`navbar ${styles.navbar}`}
+      className={`navbar is-fixed-top ${styles.navbar}`}
       role='navigation'
       aria-label='main navigation'>
       <div className='navbar-brand'>

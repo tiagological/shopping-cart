@@ -1,5 +1,12 @@
 .navbar {
-  margin: 0 5px;
+  padding: 0 5px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .navbar {
+    padding: 0 80px;
+    box-shadow: 0px 1px 5px #808080;
+  }
 }
 
 .logoFont {
@@ -18,8 +25,8 @@
 }
 
 .productQuantity {
-  color: #ffffff;
-  position: relative;
-  left: 1.6rem;
-  top: -0.3rem;
+  color: #fff;
+  position: absolute;
+  left: 1.9rem;
+  top: 0.95rem;
 }
