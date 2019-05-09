@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { toggleCart } from '../actions';
 import styles from '../styles/Navbar.module.css';
 
@@ -18,7 +19,7 @@ const Navbar = props => {
       role='navigation'
       aria-label='main navigation'>
       <div className='navbar-brand'>
-        <a className='navbar-item' href='#'>
+        <a className='navbar-item'>
           <p className={styles.logoFont}>Tutti Frutti</p>
         </a>
 
@@ -45,12 +46,13 @@ const Navbar = props => {
             </span>
           </a>
 
-          <a className='navbar-item'>
-            <span className='icon is-large'>
-              <i className='fas fa-2x fa-info-circle' />
-            </span>
-          </a>
-
+          <Link to='/about'>
+            <a className='navbar-item'>
+              <span className='icon is-large'>
+                <i className='fas fa-2x fa-info-circle' />
+              </span>
+            </a>
+          </Link>
           <a className='navbar-item' onClick={props.toggleCart}>
             <span className='icon is-large'>
               <span className={styles.productQuantity}>

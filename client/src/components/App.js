@@ -1,22 +1,20 @@
 import React from 'react';
-import Navbar from './Navbar';
-import Banner from './Banner';
-import Subheading from './Subheading';
-import ProductList from './ProductList';
-import Cart from './Cart';
-import '../styles/App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './Home';
+import About from './About';
+import Checkout from './Checkout';
 
 const App = () => {
   return (
-    <div className='container'>
-      <Navbar />
-      <Banner />
-      <section className='container'>
-        <Subheading content='Explore our range of healthy and delicious fruits!' />
-        <Cart />
-        <ProductList />
-      </section>
-    </div>
+    <Router>
+      <Switch>
+        <div>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/about' component={About} />
+          <Route exact path='/checkout' component={Checkout} />
+        </div>
+      </Switch>
+    </Router>
   );
 };
 
