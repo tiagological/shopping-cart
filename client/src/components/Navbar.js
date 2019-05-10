@@ -19,9 +19,9 @@ const Navbar = props => {
       role='navigation'
       aria-label='main navigation'>
       <div className='navbar-brand'>
-        <a className='navbar-item'>
+        <Link to='/' className='navbar-item'>
           <p className={styles.logoFont}>Tutti Frutti</p>
-        </a>
+        </Link>
 
         <a
           role='button'
@@ -40,20 +40,23 @@ const Navbar = props => {
         id='navbarMenu'
         className={`navbar-menu ${expandedState} ${styles.navbarMenu}`}>
         <div className='navbar-end'>
-          <a className='navbar-item'>
+          <Link to='/' className='navbar-item'>
             <span className='icon is-large'>
               <i className='fas fa-2x fa-home' />
             </span>
-          </a>
-
-          <Link to='/about'>
-            <a className='navbar-item'>
-              <span className='icon is-large'>
-                <i className='fas fa-2x fa-info-circle' />
-              </span>
-            </a>
           </Link>
-          <a className='navbar-item' onClick={props.toggleCart}>
+
+          <Link to='/about' className='navbar-item'>
+            <span className='icon is-large'>
+              <i className='fas fa-2x fa-info-circle' />
+            </span>
+          </Link>
+          <a
+            className='navbar-item'
+            onClick={() => {
+              props.toggleCart();
+              classToggler();
+            }}>
             <span className='icon is-large'>
               <span className={styles.productQuantity}>
                 {props.cart.length < 1 ? null : props.cart.length}

@@ -4,6 +4,7 @@ import Banner from './Banner';
 import Subheading from './Subheading';
 import ProductList from './ProductList';
 import Cart from './Cart';
+import Footer from './Footer';
 import '../styles/App.css';
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
         <Cart />
         <ProductList />
       </section>
+      <Footer />
     </div>
   );
 };

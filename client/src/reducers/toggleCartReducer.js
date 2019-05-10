@@ -1,4 +1,4 @@
-export default (state = true, action) => {
+export default (state = false, action) => {
   switch (action.type) {
     case 'TOGGLE_CART':
       return !state;

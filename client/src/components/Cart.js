@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { removeItem, decreaseTotal } from '../actions';
+import { removeItem, decreaseTotal, toggleCart } from '../actions';
 import styles from '../styles/Cart.module.css';
 import PropTypes from 'prop-types';
 
@@ -11,6 +11,7 @@ const Cart = props => {
         <p>{item.name}</p>
         <p>£{item.price}</p>
         <button
+          className='button is-primary'
           onClick={() => {
             props.removeItem(item.id);
             props.decreaseTotal(item.price);
@@ -27,7 +28,11 @@ const Cart = props => {
 
   const cartDisplay =
     props.cart.length === 0 ? (
-      <div>Your cart is empty!</div>
+      <div className={styles.emptyCartMessage}>
+        <i className='fas fa-2x fa-shopping-cart' />
+
+        <h1>Your cart is empty!</h1>
+      </div>
     ) : (
       <div>
         {cartItems}
@@ -37,7 +42,9 @@ const Cart = props => {
 
   return (
     <div style={cartVisibility} className={styles.cartContainer}>
-      <h3>Cart</h3>
+      <button className={styles.closeBtn} onClick={props.toggleCart}>
+        <i className='fas fa-times' />
+      </button>
       {cartDisplay}
     </div>
   );
@@ -53,7 +60,7 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { removeItem, decreaseTotal }
+  { removeItem, decreaseTotal, toggleCart }
 )(Cart);
 
 Cart.propTypes = {
@@ -61,5 +68,6 @@ Cart.propTypes = {
   total: PropTypes.number.isRequired,
   removeItem: PropTypes.func.isRequired,
   decreaseTotal: PropTypes.func.isRequired,
+  toggleCart: PropTypes.func.isRequired,
   isCartVisible: PropTypes.bool.isRequired
 };
