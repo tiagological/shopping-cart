@@ -12,11 +12,10 @@ const Home = () => {
     <div className='container'>
       <Navbar />
       <Banner />
-      <section className='container'>
-        <Subheading content='Explore our range of healthy and delicious fruits!' />
-        <Cart />
-        <ProductList />
-      </section>
+      <Subheading content='Explore our range of healthy and delicious fruits!' />
+      <Cart />
+      <ProductList />
+
       <Footer />
     </div>
   );

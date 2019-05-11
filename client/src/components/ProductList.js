@@ -12,11 +12,15 @@ class ProductList extends React.Component {
   render() {
     const listOfProducts = this.props.products.map(product => {
       return (
-        <div key={product.id} className={`column ${styles.centeredText}`}>
+        <div
+          key={product.id}
+          className={`column is one-third-tablet is-one-quarter-desktop ${
+            styles.productContainer
+          }`}>
           <p>{product.name}</p>
           <p>{`Price: £${product.price}`}</p>
           <button
-            className='button is-outlined'
+            className='button is-primary'
             onClick={() => {
               this.props.addToCart(product.id, product.name, product.price);
               this.props.increaseTotal(product.price);
@@ -33,7 +37,7 @@ class ProductList extends React.Component {
       );
     });
 
-    return <div className='columns'>{listOfProducts}</div>;
+    return <div className='columns is-multiline'>{listOfProducts}</div>;
   }
 }
 

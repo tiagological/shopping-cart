@@ -1,0 +1,8 @@
+.checkoutContent {
+  min-height: 420px;
+}
+
+.emptyCartMessage {
+  padding-top: 80px;
+  font-size: 2rem;
+}

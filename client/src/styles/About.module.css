@@ -3,6 +3,15 @@
   text-align: center;
 }
 
+.aboutContent {
+  margin: 30px 0;
+  padding: 0 30px;
+}
+
+.aboutContent p {
+  margin: 20px 0;
+}
+
 .formContainer {
   padding: 10px 20px;
 }

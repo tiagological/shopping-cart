@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { removeItem, decreaseTotal, toggleCart } from '../actions';
 import styles from '../styles/Cart.module.css';
 import PropTypes from 'prop-types';
@@ -11,7 +12,7 @@ const Cart = props => {
         <p>{item.name}</p>
         <p>£{item.price}</p>
         <button
-          className='button is-primary'
+          className='button is-primary is-small'
           onClick={() => {
             props.removeItem(item.id);
             props.decreaseTotal(item.price);
@@ -34,18 +35,28 @@ const Cart = props => {
         <h1>Your cart is empty!</h1>
       </div>
     ) : (
-      <div>
+      <div className={`container ${styles.innerContainer}`}>
+        <h1 className='is-size-4'>Cart</h1>
         {cartItems}
         <p>Total: £{props.total}</p>
+        <Link to='/checkout'>
+          <button
+            className='button is-primary is-medium'
+            onClick={props.toggleCart}>
+            Go to checkout
+          </button>
+        </Link>
       </div>
     );
 
   return (
     <div style={cartVisibility} className={styles.cartContainer}>
-      <button className={styles.closeBtn} onClick={props.toggleCart}>
-        <i className='fas fa-times' />
-      </button>
-      {cartDisplay}
+      <div className='container' style={{ height: '30px' }}>
+        <button className={styles.closeBtn} onClick={props.toggleCart}>
+          <i className='fas fa-times' />
+        </button>
+      </div>
+      <div className='container'>{cartDisplay}</div>
     </div>
   );
 };
