@@ -1,3 +1,28 @@
 .productContainer {
   text-align: center;
+  border-bottom: 2px solid #808080;
+  margin: 30px 30px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .productContainer {
+    margin: 0;
+    border: none;
+  }
+
+  .innerContainer {
+    border: 1px solid #808080;
+    padding: 20px 0;
+  }
+}
+
+.productImg {
+  display: block;
+  margin: 0 auto;
+  width: 140px;
+  height: auto;
+}
+
+.addToCartBtn {
+  width: 124px;
 }

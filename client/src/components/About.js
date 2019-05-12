@@ -15,11 +15,11 @@ const About = () => {
         <p className='is-size-4'>
           We source only the finest organic fruits grown by local farmers and
           are committed to investing in sustainable farming.
-          <p className='is-size-4'>
-            If for any reason your are unsatisfied with the quality of your
-            product, please fill out the form below and we will respond to you
-            as soon as possible.
-          </p>
+        </p>
+        <p className='is-size-4'>
+          If for any reason your are unsatisfied with the quality of your
+          product, please fill out the form below and we will respond to you as
+          soon as possible.
         </p>
       </div>
       <div className={`container ${styles.getInTouchTitle}`}>

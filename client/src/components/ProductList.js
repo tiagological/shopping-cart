@@ -14,25 +14,42 @@ class ProductList extends React.Component {
       return (
         <div
           key={product.id}
-          className={`column is one-third-tablet is-one-quarter-desktop ${
+          className={`column is-one-third-tablet is-one-quarter-desktop ${
             styles.productContainer
           }`}>
-          <p>{product.name}</p>
-          <p>{`Price: £${product.price}`}</p>
-          <button
-            className='button is-primary'
-            onClick={() => {
-              this.props.addToCart(product.id, product.name, product.price);
-              this.props.increaseTotal(product.price);
-            }}
-            disabled={
-              this.props.cart.findIndex(item => item.name === product.name) ===
+          <div className={styles.innerContainer}>
+            <div
+              className='container'
+              style={{ width: '140px', height: '140px' }}>
+              <img
+                src={require(`../assets/${product.id}.jpg`)}
+                alt={product.name}
+                width='140'
+                height='140'
+                className={styles.productImg}
+              />
+            </div>
+            <p>{product.name}</p>
+            <p>{`£${product.price.toFixed(2)}`}</p>
+            <button
+              className={`button is-primary ${styles.addToCartBtn}`}
+              onClick={() => {
+                this.props.addToCart(product.id, product.name, product.price);
+                this.props.increaseTotal(product.price);
+              }}
+              disabled={
+                this.props.cart.findIndex(
+                  item => item.name === product.name
+                ) === -1
+                  ? false
+                  : true
+              }>
+              {this.props.cart.findIndex(item => item.name === product.name) ===
               -1
-                ? false
-                : true
-            }>
-            Add to cart
-          </button>
+                ? 'Add to cart'
+                : 'Added to cart'}
+            </button>
+          </div>
         </div>
       );
     });
