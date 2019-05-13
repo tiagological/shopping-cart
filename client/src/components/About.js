@@ -21,6 +21,7 @@ const About = () => {
           product, please fill out the form below and we will respond to you as
           soon as possible.
         </p>
+        <hr />
       </div>
       <div className={`container ${styles.getInTouchTitle}`}>
         <h2 className='title is-2'>Get in touch</h2>

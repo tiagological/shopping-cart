@@ -1,18 +1,18 @@
 .productContainer {
   text-align: center;
-  border-bottom: 2px solid #808080;
   margin: 30px 30px;
+}
+
+.innerContainer {
+  border-radius: 5px;
+  box-shadow: 0px 1px 10px #808080;
+  padding: 20px 0;
 }
 
 @media only screen and (min-width: 1024px) {
   .productContainer {
     margin: 0;
     border: none;
-  }
-
-  .innerContainer {
-    border: 1px solid #808080;
-    padding: 20px 0;
   }
 }
 

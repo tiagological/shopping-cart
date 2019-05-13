@@ -3,22 +3,34 @@
   background-color: #fff;
   box-shadow: 0px 1px 10px #808080;
   position: fixed;
+  top: 75%;
+  left: 50%;
   z-index: 1;
-  height: 32rem;
+  min-height: 32rem;
   width: 90%;
-  top: 70px;
-  left: 0;
-  right: 0;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
   transition: opacity 200ms ease-in;
-  overflow-y: auto;
-  overflow-x: hidden;
+  transform: translate(-50%, -75%);
+}
+
+.header {
+  border-radius: 5px 5px 0 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  box-shadow: 0px 1px 10px #808080;
+  background-color: #fff;
+  height: 50px !important;
+  z-index: 1;
 }
 
 .innerContainer {
-  overflow-y: auto;
+  overflow: auto;
+  height: 30rem;
+  padding-top: 60px;
 }
 
 .closeBtn {
@@ -46,8 +58,6 @@
 
 @media only screen and (min-width: 1024px) {
   .cartContainer {
-    width: 25%;
-    top: 70px;
-    left: 1050px;
+    width: auto;
   }
 }

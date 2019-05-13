@@ -20,7 +20,10 @@ class ProductList extends React.Component {
           <div className={styles.innerContainer}>
             <div
               className='container'
-              style={{ width: '140px', height: '140px' }}>
+              style={{
+                width: '140px',
+                height: '140px'
+              }}>
               <img
                 src={require(`../assets/${product.id}.jpg`)}
                 alt={product.name}
@@ -54,7 +57,11 @@ class ProductList extends React.Component {
       );
     });
 
-    return <div className='columns is-multiline'>{listOfProducts}</div>;
+    return (
+      <div className='section'>
+        <div className='columns is-mobile is-multiline'>{listOfProducts}</div>
+      </div>
+    );
   }
 }
 

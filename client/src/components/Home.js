@@ -15,7 +15,6 @@ const Home = () => {
       <Subheading content='Explore our range of healthy and delicious fruits!' />
       <Cart />
       <ProductList />
-
       <Footer />
     </div>
   );

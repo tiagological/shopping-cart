@@ -36,7 +36,6 @@ const Cart = props => {
       </div>
     ) : (
       <div className={`container ${styles.innerContainer}`}>
-        <h1 className='is-size-4'>Cart</h1>
         {cartItems}
         <p>Total: £{props.total}</p>
         <Link to='/checkout'>
@@ -51,7 +50,10 @@ const Cart = props => {
 
   return (
     <div style={cartVisibility} className={styles.cartContainer}>
-      <div className='container' style={{ height: '30px' }}>
+      <div
+        className={`container has-text-centered ${styles.header}`}
+        style={{ height: '30px' }}>
+        <span className='is-size-4'>Cart</span>
         <button className={styles.closeBtn} onClick={props.toggleCart}>
           <i className='fas fa-times' />
         </button>
