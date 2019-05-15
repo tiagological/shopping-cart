@@ -12,6 +12,19 @@
   margin: 20px 0;
 }
 
+.formSubmitMessageContainer {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: none;
+}
+
+@media only screen and (min-width: 1024px) {
+  .formSubmitMessageContainer {
+    width: 40%;
+  }
+}
+
 .formContainer {
   padding: 10px 20px;
 }

@@ -35,7 +35,7 @@ const Cart = props => {
         <h1>Your cart is empty!</h1>
       </div>
     ) : (
-      <div className={`container ${styles.innerContainer}`}>
+      <div className={styles.innerContainer}>
         {cartItems}
         <p>Total: £{props.total}</p>
         <Link to='/checkout'>
@@ -49,16 +49,26 @@ const Cart = props => {
     );
 
   return (
-    <div style={cartVisibility} className={styles.cartContainer}>
+    <div
+      className={styles.cartBackground}
+      style={
+        props.isCartVisible
+          ? { visiblity: 'visible' }
+          : { visibility: 'hidden' }
+      }
+      onClick={e => console.log(e.target)}>
       <div
-        className={`container has-text-centered ${styles.header}`}
-        style={{ height: '30px' }}>
-        <span className='is-size-4'>Cart</span>
-        <button className={styles.closeBtn} onClick={props.toggleCart}>
-          <i className='fas fa-times' />
-        </button>
+        style={cartVisibility}
+        className={styles.cartContainer}
+        id='cartContainer'>
+        <div className={styles.header} style={{ height: '30px' }}>
+          <span className='is-size-4'>Cart</span>
+          <button className={styles.closeBtn} onClick={props.toggleCart}>
+            <i className='fas fa-times' />
+          </button>
+        </div>
+        <div>{cartDisplay}</div>
       </div>
-      <div className='container'>{cartDisplay}</div>
     </div>
   );
 };
