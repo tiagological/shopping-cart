@@ -1,9 +1,94 @@
 .checkoutContent {
-  min-height: 420px;
+  /* min-height: 470px; */
   padding-top: 20px;
+  flex-grow: 1;
 }
 
 .emptyCartMessage {
   padding-top: 80px;
   font-size: 2rem;
+}
+
+.productContainer {
+  margin: 1rem 0;
+  height: auto;
+}
+
+.productContainer::after {
+  display: block;
+  content: '';
+  clear: both;
+  margin: 0 auto;
+  width: 90%;
+  border-bottom: 1px solid #808080;
+}
+
+.leftContent {
+  float: left;
+  width: 50%;
+  text-align: left;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.rightContent {
+  float: right;
+  width: 50%;
+  margin-bottom: 1rem;
+}
+
+.totalContainer {
+  height: 5rem;
+}
+
+.totalAmountContent {
+  float: left;
+  width: 50%;
+  text-align: left;
+}
+
+.paymentBtnContent {
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+
+.paymentBtn {
+  color: #7febc1;
+  outline: none;
+  border: none;
+  background-color: yellow;
+  transform: scale(1.5);
+}
+
+.paymentBtn:hover {
+  color: #ffff00;
+  background-color: #7febc1;
+  transition: background-color, color 200ms;
+}
+
+@media only screen and (min-width: 1024px) {
+  .productImg {
+    height: auto;
+    width: 140px;
+  }
+
+  .productContainer {
+    height: 165px;
+    margin: 2rem;
+  }
+
+  .productContainer::after {
+    width: 100%;
+  }
+
+  .leftContent,
+  .rightContent {
+    height: 160px;
+  }
+
+  .removeBtn {
+    margin: 3rem 0 0 1rem;
+    float: right;
+  }
 }

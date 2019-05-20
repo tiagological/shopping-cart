@@ -8,17 +8,34 @@ import PropTypes from 'prop-types';
 const Cart = props => {
   const cartItems = props.cart.map(item => {
     return (
-      <div key={item.id}>
-        <p>{item.name}</p>
-        <p>£{item.price}</p>
-        <button
-          className='button is-primary is-small'
-          onClick={() => {
-            props.removeItem(item.id);
-            props.decreaseTotal(item.price);
-          }}>
-          Remove from cart
-        </button>
+      <div
+        key={item.id}
+        className={styles.productContainer}
+        style={
+          props.cart.indexOf(item) === props.cart.length - 1
+            ? { borderBottom: 'none' }
+            : null
+        }>
+        <div className={styles.leftContent}>
+          <p>{item.name}</p>
+          <p>£{item.price.toFixed(2)}</p>
+        </div>
+        <div className={styles.rightContent}>
+          <img
+            src={require(`../assets/${item.id}.jpg`)}
+            alt={item.name}
+            width='70'
+            height='70'
+          />
+          <button
+            className='button is-primary is-small'
+            onClick={() => {
+              props.removeItem(item.id);
+              props.decreaseTotal(item.price);
+            }}>
+            Remove from cart
+          </button>
+        </div>
       </div>
     );
   });
@@ -37,7 +54,7 @@ const Cart = props => {
     ) : (
       <div className={styles.innerContainer}>
         {cartItems}
-        <p>Total: £{props.total}</p>
+        <p style={{ marginBottom: '1rem' }}>Total: £{props.total.toFixed(2)}</p>
         <Link to='/checkout'>
           <button
             className='button is-primary is-medium'
@@ -55,8 +72,7 @@ const Cart = props => {
         props.isCartVisible
           ? { visiblity: 'visible' }
           : { visibility: 'hidden' }
-      }
-      onClick={e => console.log(e.target)}>
+      }>
       <div
         style={cartVisibility}
         className={styles.cartContainer}

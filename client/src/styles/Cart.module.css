@@ -38,8 +38,9 @@
 
 .innerContainer {
   overflow: auto;
-  height: 30rem;
+  height: 32rem;
   padding-top: 60px;
+  margin-bottom: 1rem;
 }
 
 .closeBtn {
@@ -68,5 +69,44 @@
 @media only screen and (min-width: 1024px) {
   .cartContainer {
     width: 40%;
+  }
+}
+
+.productContainer {
+  margin: 1rem 0;
+  height: auto;
+}
+
+.productContainer::after {
+  display: block;
+  content: '';
+  clear: both;
+  margin: 0 auto;
+  width: 90%;
+  border-bottom: 1px solid #808080;
+}
+
+.leftContent {
+  float: left;
+  width: 50%;
+  text-align: left;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.rightContent {
+  float: right;
+  width: 50%;
+  margin-bottom: 1rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  .productImg {
+    height: auto;
+    width: 140px;
+  }
+
+  .productContainer::after {
+    width: 95%;
   }
 }

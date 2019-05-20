@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../styles/Navbar.module.css';
 
-const CheckoutNavbar = props => {
+const CheckoutNavbar = () => {
   const [expandedState, setExpandedState] = useState('not-active');
 
   const classToggler = () => {

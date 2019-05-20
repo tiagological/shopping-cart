@@ -12,22 +12,56 @@ const Checkout = props => {
         <h1>Your cart is empty!</h1>
       </div>
     ) : (
-      props.cart.map(item => {
-        return (
-          <div key={item.id} className='container'>
-            <p>{item.name}</p>
-            <p>£{item.price}</p>
+      <div>
+        {props.cart.map(item => {
+          return (
+            <div
+              key={item.id}
+              className={`container ${styles.productContainer}`}>
+              <div className={styles.leftContent}>
+                <p>{item.name}</p>
+                <p>£{item.price.toFixed(2)}</p>
+              </div>
+              <div className={styles.rightContent}>
+                <img
+                  src={require(`../assets/${item.id}.jpg`)}
+                  alt={item.name}
+                  width='70'
+                  height='70'
+                  className={styles.productImg}
+                />
+                <button
+                  className={
+                    window.screen.width > 1024
+                      ? `button is-primary is-medium ${styles.removeBtn}`
+                      : `button is-primary is-small ${styles.removeBtn}`
+                  }
+                  onClick={() => {
+                    props.removeItem(item.id);
+                    props.decreaseTotal(item.price);
+                  }}>
+                  Remove from cart
+                </button>
+              </div>
+            </div>
+          );
+        })}
+        <div className={styles.totalContainer}>
+          <div className={styles.totalAmountContent}>
+            <p>Total: {props.total.toFixed(2)}</p>
+          </div>
+          <div className={styles.paymentBtnContent}>
             <button
-              className='button is-primary is-medium'
-              onClick={() => {
-                props.removeItem(item.id);
-                props.decreaseTotal(item.price);
-              }}>
-              Remove from cart
+              className={
+                window.screen.width > 1024
+                  ? `button is-medium ${styles.paymentBtn}`
+                  : `button is-small ${styles.paymentBtn}`
+              }>
+              Go to payment
             </button>
           </div>
-        );
-      })
+        </div>
+      </div>
     );
 
   return (

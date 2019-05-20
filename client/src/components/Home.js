@@ -8,13 +8,22 @@ import Footer from './Footer';
 import '../styles/App.css';
 
 const Home = () => {
+  const scrollToProducts = () => {
+    window.scrollTo({
+      top: ref.current.offsetTop,
+      behavior: 'smooth'
+    });
+  };
+
+  let ref = React.createRef();
+
   return (
     <div className='container'>
       <Navbar />
-      <Banner />
+      <Banner scrollToProducts={scrollToProducts} />
       <Subheading content='Explore our range of healthy and delicious fruits!' />
       <Cart />
-      <ProductList />
+      <ProductList reference={ref} />
       <Footer />
     </div>
   );

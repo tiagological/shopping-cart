@@ -58,7 +58,7 @@ class ProductList extends React.Component {
     });
 
     return (
-      <div className='section'>
+      <div className='section' ref={this.props.reference}>
         <div className='columns is-mobile is-multiline'>{listOfProducts}</div>
       </div>
     );
