@@ -12,7 +12,7 @@ const Checkout = props => {
         <h1>Your cart is empty!</h1>
       </div>
     ) : (
-      <div>
+      <div className='container'>
         {props.cart.map(item => {
           return (
             <div
@@ -46,16 +46,16 @@ const Checkout = props => {
             </div>
           );
         })}
-        <div className={styles.totalContainer}>
+        <div className={styles.totalAmountDiv}>
           <div className={styles.totalAmountContent}>
             <p>Total: {props.total.toFixed(2)}</p>
           </div>
-          <div className={styles.paymentBtnContent}>
+          <div className={styles.paymentBtnDiv}>
             <button
               className={
                 window.screen.width > 1024
                   ? `button is-medium ${styles.paymentBtn}`
-                  : `button is-small ${styles.paymentBtn}`
+                  : `button is-medium ${styles.paymentBtn}`
               }>
               Go to payment
             </button>

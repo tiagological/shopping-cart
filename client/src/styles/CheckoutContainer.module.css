@@ -1,4 +1,11 @@
 .checkoutContainer {
+  min-height: 100%;
   display: flex;
   flex-direction: column;
+}
+
+@media only screen and (max-width: 768px) {
+  .checkoutContainer {
+    min-width: 100%;
+  }
 }

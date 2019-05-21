@@ -1,5 +1,4 @@
 .checkoutContent {
-  /* min-height: 470px; */
   padding-top: 20px;
   flex-grow: 1;
 }
@@ -37,8 +36,9 @@
   margin-bottom: 1rem;
 }
 
-.totalContainer {
+.totalAmountDiv {
   height: 5rem;
+  padding: 0 1rem;
 }
 
 .totalAmountContent {
@@ -47,7 +47,7 @@
   text-align: left;
 }
 
-.paymentBtnContent {
+.paymentBtnDiv {
   float: right;
   width: 50%;
   text-align: right;
@@ -58,7 +58,7 @@
   outline: none;
   border: none;
   background-color: yellow;
-  transform: scale(1.5);
+  margin: 0 auto;
 }
 
 .paymentBtn:hover {
@@ -75,7 +75,6 @@
 
   .productContainer {
     height: 165px;
-    margin: 2rem;
   }
 
   .productContainer::after {
