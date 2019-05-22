@@ -69,7 +69,7 @@ class About extends React.Component {
             are committed to investing in sustainable farming.
           </p>
           <p className='is-size-4'>
-            If for any reason your are unsatisfied with the quality of your
+            If for any reason you are unsatisfied with the quality of your
             product, please fill out the form below and we will respond to you
             as soon as possible.
           </p>
