@@ -5,6 +5,7 @@ import { removeItem, decreaseTotal, toggleCart } from '../actions';
 import styles from '../styles/Cart.module.css';
 import PropTypes from 'prop-types';
 import 'animate.css';
+import { baseURL } from '../constants';
 
 const Cart = props => {
   const cartItems = props.cart.map(item => {
@@ -56,7 +57,7 @@ const Cart = props => {
       <div className={styles.innerContainer}>
         {cartItems}
         <p style={{ marginBottom: '1rem' }}>Total: £{props.total.toFixed(2)}</p>
-        <Link to='/checkout'>
+        <Link to={baseURL + '/checkout'}>
           <button
             className='button is-primary is-medium'
             onClick={props.toggleCart}>

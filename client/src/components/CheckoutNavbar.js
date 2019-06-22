@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../styles/Navbar.module.css';
+import { baseURL } from '../constants';
 
 const CheckoutNavbar = () => {
   const [expandedState, setExpandedState] = useState('not-active');
@@ -17,7 +18,7 @@ const CheckoutNavbar = () => {
       role='navigation'
       aria-label='main navigation'>
       <div className='navbar-brand'>
-        <Link to='/' className='navbar-item'>
+        <Link to={baseURL + '/'} className='navbar-item'>
           <p className={styles.logoFont}>Tutti Frutti</p>
         </Link>
 
@@ -38,13 +39,13 @@ const CheckoutNavbar = () => {
         id='navbarMenu'
         className={`navbar-menu ${expandedState} ${styles.navbarMenu}`}>
         <div className='navbar-end'>
-          <Link to='/' className='navbar-item'>
+          <Link to={baseURL + '/'} className='navbar-item'>
             <span className='icon is-large'>
               <i className='fas fa-2x fa-home' />
             </span>
           </Link>
 
-          <Link to='/about' className='navbar-item'>
+          <Link to={baseURL + '/about'} className='navbar-item'>
             <span className='icon is-large'>
               <i className='fas fa-2x fa-info-circle' />
             </span>

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { toggleCart } from '../actions';
 import styles from '../styles/Navbar.module.css';
+import { baseURL } from '../constants';
 
 const Navbar = props => {
   const [expandedState, setExpandedState] = useState('not-active');
@@ -19,7 +20,7 @@ const Navbar = props => {
       role='navigation'
       aria-label='main navigation'>
       <div className='navbar-brand'>
-        <Link to='/' className='navbar-item'>
+        <Link to={baseURL + '/'} className='navbar-item'>
           <p className={styles.logoFont}>Tutti Frutti</p>
         </Link>
 
@@ -41,7 +42,7 @@ const Navbar = props => {
         className={`navbar-menu ${expandedState} ${styles.navbarMenu}`}>
         <div className='navbar-end'>
           <Link
-            to='/'
+            to={baseURL + '/'}
             className={`navbar-item ${styles.navbarItem}`}
             onClick={() => classToggler()}>
             <span className='icon is-large'>
@@ -51,7 +52,7 @@ const Navbar = props => {
           </Link>
 
           <Link
-            to='/about'
+            to={baseURL + '/about'}
             className={`navbar-item ${styles.navbarItem}`}
             onClick={() => classToggler()}>
             <span className='icon is-large'>
