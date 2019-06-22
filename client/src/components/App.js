@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ScrollToTop from './ScrollToTop';
-import Home from './Home';
-import AboutContainer from './AboutContainer';
-import CheckoutContainer from './CheckoutContainer';
+import Home from '../screens/Home';
+import AboutContainer from '../screens/AboutContainer';
+import CheckoutContainer from '../screens/CheckoutContainer';
 
 const App = () => {
   return (

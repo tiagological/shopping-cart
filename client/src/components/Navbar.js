@@ -40,19 +40,27 @@ const Navbar = props => {
         id='navbarMenu'
         className={`navbar-menu ${expandedState} ${styles.navbarMenu}`}>
         <div className='navbar-end'>
-          <Link to='/' className='navbar-item'>
+          <Link
+            to='/'
+            className={`navbar-item ${styles.navbarItem}`}
+            onClick={() => classToggler()}>
             <span className='icon is-large'>
               <i className='fas fa-2x fa-home' />
             </span>
+            {window.innerWidth < 768 && <p className={styles.text}>HOME</p>}
           </Link>
 
-          <Link to='/about' className='navbar-item'>
+          <Link
+            to='/about'
+            className={`navbar-item ${styles.navbarItem}`}
+            onClick={() => classToggler()}>
             <span className='icon is-large'>
               <i className='fas fa-2x fa-info-circle' />
             </span>
+            {window.innerWidth < 768 && <p className={styles.text}>ABOUT</p>}
           </Link>
           <a
-            className='navbar-item'
+            className={`navbar-item ${styles.navbarItem}`}
             onClick={() => {
               props.toggleCart();
               classToggler();
@@ -63,6 +71,7 @@ const Navbar = props => {
               </span>
               <i className='fas fa-2x fa-shopping-cart' />
             </span>
+            {window.innerWidth < 768 && <p className={styles.text}>CART</p>}
           </a>
         </div>
       </div>

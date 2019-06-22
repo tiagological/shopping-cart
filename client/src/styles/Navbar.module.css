@@ -1,7 +1,32 @@
 .navbar {
   padding: 0 5px;
+  -webkit-box-shadow: 0px 1px 5px #808080;
   box-shadow: 0px 1px 5px #808080;
+  -ms-flex-negative: 0;
   flex-shrink: 0;
+}
+
+.navbarItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.text {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin: auto;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -19,10 +44,6 @@
 .burgerSpan {
   height: 2px !important;
   width: 20px !important;
-}
-
-.navbarMenu {
-  transition: display 4s;
 }
 
 .productQuantity {

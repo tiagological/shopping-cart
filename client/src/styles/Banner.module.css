@@ -1,6 +1,6 @@
 .bannerContainer {
   text-align: center;
-  background-image: url('../assets/banner.jpg');
+  background-image: url('../assets/banner_resized.jpg');
   background-size: cover;
   height: 600px;
 }
@@ -28,6 +28,7 @@
   top: 12rem;
   background-color: #ffff00 !important;
   color: #7febc1 !important;
+  -webkit-transition: background-color, color 200ms;
   transition: background-color, color 200ms;
 }
 

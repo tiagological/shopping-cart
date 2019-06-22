@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { removeItem, decreaseTotal, toggleCart } from '../actions';
 import styles from '../styles/Cart.module.css';
 import PropTypes from 'prop-types';
+import 'animate.css';
 
 const Cart = props => {
   const cartItems = props.cart.map(item => {

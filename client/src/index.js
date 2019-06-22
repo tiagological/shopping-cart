@@ -4,14 +4,21 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from './reducers';
 import App from './components/App';
+import { loadState, saveState } from './services';
+import throttle from 'lodash/throttle';
+
+const persistedState = loadState();
+
+const store = createStore(reducers, persistedState);
+
+store.subscribe(
+  throttle(() => {
+    saveState(store.getState());
+  }, 1000)
+);
 
 ReactDOM.render(
-  <Provider
-    store={createStore(
-      reducers,
-      window.__REDUX_DEVTOOLS_EXTENSION__ &&
-        window.__REDUX_DEVTOOLS_EXTENSION__()
-    )}>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.querySelector('#root')

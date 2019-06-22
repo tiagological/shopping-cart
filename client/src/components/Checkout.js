@@ -48,13 +48,13 @@ const Checkout = props => {
         })}
         <div className={styles.totalAmountDiv}>
           <div className={styles.totalAmountContent}>
-            <p>Total: {props.total.toFixed(2)}</p>
+            <p>Total: £{props.total.toFixed(2)}</p>
           </div>
           <div className={styles.paymentBtnDiv}>
             <button
               className={
                 window.screen.width > 1024
-                  ? `button is-medium ${styles.paymentBtn}`
+                  ? `button is-large ${styles.paymentBtn}`
                   : `button is-medium ${styles.paymentBtn}`
               }>
               Go to payment
